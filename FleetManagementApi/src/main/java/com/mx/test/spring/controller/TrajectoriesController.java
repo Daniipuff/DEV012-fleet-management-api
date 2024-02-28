@@ -46,7 +46,11 @@ public class TrajectoriesController {
         Trajectories trajectories = trajectoriesService.getTrajectoriesById(id);
         return new ResponseEntity<>(trajectories, HttpStatus.OK);
     }
- 
+    @GetMapping
+    public ResponseEntity<List<Trajectories>> getAllTrajectories(){
+    	List<Trajectories> trajectories = trajectoriesService.getAllTrajectories();
+        return new ResponseEntity<>(trajectories, HttpStatus.OK);
+    }
     @PutMapping("{id}")
     // http://localhost:8080/api/users/1
     public ResponseEntity<Trajectories> updateTrajectories(@PathVariable("id") Integer id,
